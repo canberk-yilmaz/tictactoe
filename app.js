@@ -28,11 +28,12 @@ board.addEventListener("click", (event) => {
       !playerOneWin &&
       !playerTwoWin
     ) {
-      document.getElementById("state").innerText = `Player ${
+      document.getElementById("state").textContent = `Player ${
         playerOneTurn ? "X" : "O"
       } Turn`;
     } else {
-      document.getElementById("state").innerText = "Game End";
+      document.getElementById("state").textContent = "Game End";
+      document.getElementById("winner").textContent = "It's a Draw!";
     }
 
     let winningIndexes = [
@@ -59,7 +60,7 @@ board.addEventListener("click", (event) => {
   }
 
   if (playerOneWin || playerTwoWin) {
-    document.getElementById("state").innerText = "Game End";
+    document.getElementById("state").textContent = "Game End";
     document.getElementById("winner").textContent = `Winner is Player ${
       playerOneWin ? 1 : 2
     }`;
@@ -73,5 +74,5 @@ reset.addEventListener("click", () => {
   playerOneWin = false;
   playerTwoWin = false;
   document.getElementById("winner").textContent = "";
-  document.getElementById("state").innerText = "Player X Turn";
+  document.getElementById("state").textContent = "Player X Turn";
 });
